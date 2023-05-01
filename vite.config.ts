@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
+import { createStyleImportPlugin, VxeTableResolve } from 'vite-plugin-style-import'
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +13,24 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [AntDesignVueResolver()],
+    }),
+    createStyleImportPlugin({
+      resolves: [VxeTableResolve()],
+    }),
+  ],
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'es2020',
+    },
+    include: [
+      'ant-design-vue/es/locale/zh_CN',
+      'ant-design-vue/es/locale/en_US',
+    ],
+  },
   server: {
     port: 8080, //启动端口
     hmr: {

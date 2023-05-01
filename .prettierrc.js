@@ -1,6 +1,6 @@
 module.exports = {
   // 一行最多 120 字符
-  printWidth: 120,
+  printWidth: 80,
   // 使用 2 个空格缩进
   tabWidth: 2,
   // 不使用 tab 缩进，而使用空格
@@ -33,5 +33,5 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'auto',
+  endOfLine: 'lf',
 }
