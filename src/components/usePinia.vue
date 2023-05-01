@@ -4,10 +4,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store/user'
 
-const userStore = useUserStore();
+const userStore = useUserStore()
 const edit = () => {
-  userStore.updateName('李四');
-};
+  userStore.updateName('李四')
+}
 </script>
