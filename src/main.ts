@@ -21,9 +21,9 @@ app.use(store)
 setupAntDesignComponents(app)
 // app.use(setupAntDesignComponents)
 // VEX
+VXETable.use(VXETablePluginAntd)
 setupVxeTableComponents(app)
 // app.use(setupVxeTableComponents)
-VXETable.use(VXETablePluginAntd)
 
 // 挂载实例
 app.mount('#app')

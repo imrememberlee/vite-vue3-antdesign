@@ -22,7 +22,7 @@ import {
   Spin as ASpin,
   Table as ATable,
   ConfigProvider as AConfigProvider,
-  TimePicker as ATimePicker
+  TimePicker as ATimePicker,
 } from 'ant-design-vue'
 
 import type { App } from 'vue'
