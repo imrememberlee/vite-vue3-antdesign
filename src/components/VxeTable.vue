@@ -16,7 +16,7 @@
       </template>
     </vxe-column>
     <vxe-column field="date" title="Date" width="200" :edit-render="{}">
-      <template #default="{ row, rowIndex }">
+      <template #default="{ row }">
         {{ row.date ? dayjs(row.date).format('YYYY-MM-DD') : '' }}
         <!-- <a-date-picker v-model:value="row.date" type="date" @change="(date: any) => changeData(date, rowIndex)"></a-date-picker> -->
       </template>
@@ -38,13 +38,13 @@
         props: { type: 'date', format: 'HH:mm:ss' },
       }"
     >
-      <template #default="{ row, rowIndex }">
+      <template #default="{ row }">
         <a-time-picker v-model:value="row.date7" value-format="HH:mm:ss" />
       </template>
     </vxe-table-column>
     <vxe-column title="操作" width="160">
       <template #default="{ row }">
-          <a-button @click="editRowEvent(row)">编辑</a-button>
+        <a-button @click="editRowEvent(row)">编辑</a-button>
       </template>
     </vxe-column>
   </vxe-table>
@@ -56,7 +56,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import dayjs, { Dayjs } from 'dayjs'
-import { VXETable, VxeTableInstance } from 'vxe-table'
+import { VxeTableInstance } from 'vxe-table'
 // import locale from 'ant-design-vue/es/date-picker/locale/zh_CN'
 // import customParseFormat from 'dayjs/plugin/customParseFormat'
 // dayjs.extend(customParseFormat)
@@ -65,8 +65,8 @@ interface useInfoModel {
   id: string | number
   name: string
   age: number
-  date?: any
-  date7?: any
+  date?: Dayjs
+  date7?: Dayjs
 }
 let tableData = reactive<useInfoModel[]>([{ id: 0, age: 0, name: '' }])
 tableData = [
@@ -88,7 +88,7 @@ const changeData = (date: Dayjs, idx: number): void => {
 const xTable = ref<VxeTableInstance>()
 const editRowEvent = (row: useInfoModel) => {
   const vxetable = xTable.value
-  vxetable.setEditRow(row)
+  vxetable && vxetable.setEditRow(row)
 }
 </script>
 

@@ -1,7 +1,5 @@
 module.exports = {
   parser: 'vue-eslint-parser',
-  printWidth: 80,
-  endOfLine: 'lf',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
