@@ -21,7 +21,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        endOfLine: 'lf',
+        endOfLine: 'auto',
         printWidth: 80,
         trailingComma: 'all',
         semi: false,
@@ -31,5 +31,6 @@ module.exports = {
         tabWidth: 2,
       },
     ],
+    'vue/multi-word-component-names': 'off',
   },
 }

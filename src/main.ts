@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
-import './style.css'
+import './styles/style.css'
 import App from './App.vue'
 import store from './store'
+import router from './router/index'
 // VEX
 import VXETable from 'vxe-table'
 import VXETablePluginAntd from 'vxe-table-plugin-antd'
@@ -17,13 +18,14 @@ const app = createApp(App)
 // 挂载pinia
 app.use(store)
 
+// 挂载路由
+app.use(router)
+
 // 注册 UI
 setupAntDesignComponents(app)
-// app.use(setupAntDesignComponents)
 // VEX
 VXETable.use(VXETablePluginAntd)
 setupVxeTableComponents(app)
-// app.use(setupVxeTableComponents)
 
 // 挂载实例
 app.mount('#app')
