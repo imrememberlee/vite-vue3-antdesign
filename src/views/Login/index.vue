@@ -3,6 +3,7 @@
   <button @click="login">登录</button>
 </template>
 <script setup lang="ts">
+import { inject, Ref, ref } from 'vue'
 import { login as userLogin } from '@/api/user'
 
 const login = async () => {
@@ -10,4 +11,7 @@ const login = async () => {
   const res = await userLogin(LoginParams)
   console.log(res)
 }
+
+const theme = inject<Ref<string>>('theme', ref('dark'))
+console.log('theme', theme)
 </script>
